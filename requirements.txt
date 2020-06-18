@@ -19,7 +19,7 @@ prometheus-async==19.2.0
 prometheus-client==0.7.1
 pycryptodome==3.9.7
 regex==2020.4.4
-requests==2.23.0
+requests==2.24.0
 toml==0.10.0
 typed-ast==1.4.1
 urllib3==1.25.9
