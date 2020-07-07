@@ -2,59 +2,11 @@
     "users": [
         {
             "user_id": 1,
-            "port": 2345,
-            "method": "aes-256-cfb",
-            "password": "hellotheworld1",
-            "transfer": 104857600,
+            "port": 123,
+            "method": "chacha20-ietf-poly1305",
+            "password": "aaaa",
+            "transfer": 0,
             "speed_limit": 0
-        },
-        {
-            "user_id": 2,
-            "port": 2346,
-            "method": "chacha20-ietf-poly1305",
-            "password": "hellotheworld2",
-            "transfer": 104857600,
-            "speed_limit": 384000
-        },
-        {
-            "user_id": 3,
-            "port": 2346,
-            "method": "chacha20-ietf-poly1305",
-            "password": "hellotheworld3",
-            "transfer": 104857600,
-            "speed_limit": 384000
-        },
-        {
-            "user_id": 4,
-            "port": 1025,
-            "method": "chacha20-ietf-poly1305",
-            "password": "hellotheworld4",
-            "transfer": 104857600,
-            "speed_limit": 384000
-        },
-        {
-            "user_id": 5,
-            "port": 1025,
-            "method": "chacha20-ietf-poly1305",
-            "password": "hellotheworld5",
-            "transfer": 104857600,
-            "speed_limit": 384000
-        },
-        {
-            "user_id": 6,
-            "port": 1025,
-            "method": "chacha20-ietf-poly1305",
-            "password": "hellotheworld6",
-            "transfer": 104857600,
-            "speed_limit": 384000
-        },
-        {
-            "user_id": 7,
-            "port": 1025,
-            "method": "chacha20-ietf-poly1305",
-            "password": "9vckC1IkKpIp",
-            "transfer": 104857600,
-            "speed_limit": 384000
         }
     ]
 }

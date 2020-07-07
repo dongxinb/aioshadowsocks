@@ -3,6 +3,7 @@ import logging
 import socket
 import struct
 
+from shadowsocks.obfs import HttpSimpleObfs
 from shadowsocks import protocol_flag as flag
 from shadowsocks.cipherman import CipherMan
 from shadowsocks.metrics import ACTIVE_CONNECTION_COUNT, CONNECTION_MADE_COUNT
@@ -65,6 +66,7 @@ class LocalHandler(TimeoutMixin):
         self._transport_protocol_human = None
         self._is_closing = False
         self._connect_buffer = bytearray()
+        self._obfs = HttpSimpleObfs()
 
     def _init_transport(self, transport, peername, protocol):
         self._stage = self.STAGE_INIT
@@ -94,6 +96,7 @@ class LocalHandler(TimeoutMixin):
         ACTIVE_CONNECTION_COUNT.inc(-1)
 
     def write(self, data):
+        data = self._obfs.server_encode(data)
         if self._transport_protocol == flag.TRANSPORT_TCP:
             self._transport and not self._transport.is_closing() and self._transport.write(
                 data
@@ -118,6 +121,7 @@ class LocalHandler(TimeoutMixin):
     def handle_data_received(self, data):
 
         try:
+            data = self._obfs.server_decode(data)
             data = self.cipher.decrypt(data)
         except Exception as e:
             self.close()
